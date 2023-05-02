@@ -40,6 +40,8 @@ dependencies:
   animate_do: ^3.0.2
   get: ^4.6.5
   firebase_auth: ^4.4.2
+  firestore_ui: ^1.25.1
+  cloud_firestore: ^4.5.3
 
 dev_dependencies:
   flutter_test:
