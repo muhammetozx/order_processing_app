@@ -10,7 +10,7 @@ import 'package:order_processing_app/views/loginScreen.dart';
 import 'package:order_processing_app/views/signUpScreen.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
-  const ForgotPasswordScreen({ Key? key }) : super(key: key);
+  const ForgotPasswordScreen({Key? key}) : super(key: key);
 
   @override
   State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
@@ -33,45 +33,49 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             children: [
               FadeInDown(
                 duration: Duration(milliseconds: 1800),
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Lottie.asset('assets/images/hello.json',fit: BoxFit.cover),
-                ),
-              ),
-              FadeInLeft(
-                  duration: Duration(milliseconds: 1800),
-                child: TextFormField(
-                  controller: forgetPasswordController,
-                  decoration: InputDecoration(
-                    hintText: "Email",
-                    labelText: "Email",
-                    prefixIcon: Icon(Icons.email),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    )
+                child: SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Lottie.asset('assets/images/hello.json',
+                        fit: BoxFit.cover),
                   ),
                 ),
               ),
-              SizedBox(height: 10.0),  
+              FadeInLeft(
+                duration: Duration(milliseconds: 1800),
+                child: TextFormField(
+                  controller: forgetPasswordController,
+                  decoration: InputDecoration(
+                      hintText: "Email",
+                      labelText: "Email",
+                      prefixIcon: Icon(Icons.email),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      )),
+                ),
+              ),
+              SizedBox(height: 10.0),
               ElevatedButton(
-                onPressed: () async{
+                onPressed: () async {
                   var forgotEmail = forgetPasswordController.text.trim();
 
-                  try{
+                  try {
                     await FirebaseAuth.instance
-                    .sendPasswordResetEmail(email: forgotEmail)
-                    .then((value) => {
-                      print("Email Sent!"),
-                      Get.off(() => LoginScreen()),
-                    });
-                  }on FirebaseAuthException catch (e){
+                        .sendPasswordResetEmail(email: forgotEmail)
+                        .then((value) => {
+                              print("Email Sent!"),
+                              Get.off(() => LoginScreen()),
+                            });
+                  } on FirebaseAuthException catch (e) {
                     print("Error $e");
                   }
                 },
                 child: Text("Forgot"),
-              ),    
+              ),
             ],
-          ), 
+          ),
         ),
       ),
     );

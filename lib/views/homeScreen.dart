@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
     print("");
   }*/
 
-
   /*DocumentSnapshot? userSnapshot;
   getUserDetails() async {
     String uid = FirebaseAuth.instance.currentUser!.uid;
@@ -35,6 +34,29 @@ class _HomeScreenState extends State<HomeScreen> {
         await FirebaseFirestore.instance.collection('Users').doc(uid).get();
 
     setState(() {});
+  }*/
+
+  //getUserDetails() async {
+  /* FirebaseAuth auth = FirebaseAuth.instance;
+        Query ref = FirebaseFirestore.instance
+        .collection('Orders')
+        .where("userId", isEqualTo: auth.currentUser?.uid);
+    CollectionReference users = FirebaseFirestore.instance.collection("Users");
+    DocumentSnapshot result = await users.doc()).get();*/
+  //final uid = FirebaseAuth.instance.currentUser?.displayName;
+  //print(uid);
+
+  // print("UserName");
+  //  print("çalıştı");
+  // }
+
+  /*getUserDetails() async {
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+
+    DocumentSnapshot userSnapshot =
+        await FirebaseFirestore.instance.collection('Users').doc(uid).get();
+
+    print(userSnapshot.data());
   }*/
 
   @override

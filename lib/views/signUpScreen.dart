@@ -27,10 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             email: singUpEmailController.text,
             password: singUpPasswordController.text)
         .then((user) {
-      FirebaseFirestore.instance
-          .collection('Users')
-          .doc(singUpUserNameController.text)
-          .set({
+      FirebaseFirestore.instance.collection('Users').doc().set({
         'UserName': singUpUserNameController.text,
         'Email': singUpEmailController.text,
         'Password': singUpPasswordController.text
@@ -60,10 +57,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
             children: [
               FadeInDown(
                 duration: Duration(milliseconds: 1800),
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Lottie.asset('assets/images/hello.json',
-                      fit: BoxFit.cover),
+                child: SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Lottie.asset('assets/images/hello.json',
+                        fit: BoxFit.cover),
+                  ),
                 ),
               ),
               FadeInLeft(
